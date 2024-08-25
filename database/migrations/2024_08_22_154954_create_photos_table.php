@@ -13,9 +13,14 @@ return new class extends Migration
     {
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
-            $table->string('name');
+            $table->foreignId('user_id')->constrained(
+                table: 'users'
+            );
+            $table->foreignId('tour_id')->constrained(
+                table: 'tours'
+            );
             $table->string('path');
+            $table->timestamps();
         });
     }
 

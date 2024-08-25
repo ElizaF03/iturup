@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('hotel_phone_numbers', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->foreignId('hotel_id')->constrained(
                 table: 'hotels', indexName: 'phones_hotel_id'
             );
             $table->string('phone_number');
+            $table->timestamps();
         });
     }
 

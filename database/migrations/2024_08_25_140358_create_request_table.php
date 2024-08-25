@@ -12,8 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('request', function (Blueprint $table) {
-            $table->primary('id');
-            $table->timestamps();
+            $table->id();
             $table->foreignId('tour_id')->constrained(
                 table: 'tours'
             );
@@ -22,12 +21,10 @@ return new class extends Migration
             $table->string('phone', length: 255);
             $table->string('city', length: 255);
             $table->integer('number_of_people');
-            $table->text('comment');
+            $table->text('comment')->nullable();
             $table->date('tour_date');
-            $table->date('creation_date');
-            $table->string('status', length: 255);
-            $table->date('update_status');
-
+            $table->enum('status', []);
+            $table->timestamps();
         });
     }
 
