@@ -23,7 +23,7 @@ return new class extends Migration
             $table->integer('number_of_people');
             $table->text('comment')->nullable();
             $table->date('tour_date');
-            $table->enum('status', []);
+            $table->enum('status', ['accepted', 'at_work', 'completed', 'canceled'])->default('accepted');
             $table->timestamps();
         });
     }
