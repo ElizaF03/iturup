@@ -1,0 +1,44 @@
+{
+	"gallery": [
+		{
+			"id": 10,
+			"name": "Елизавета Ф.",
+			"foto": "./img/gallery/gallery10.png"
+		},
+		{
+			"id": 11,
+			"name": "Елизавета Ф.",
+			"foto": "./img/gallery/gallery11.jpg"
+		},
+		{
+			"id": 12,
+			"name": "Елизавета Ф.",
+			"foto": "./img/gallery/gallery12.jpg"
+		},
+		{
+			"id": 13,
+			"name": "Елизавета Ф.",
+			"foto": "./img/gallery/gallery13.jpg"
+		},
+		{
+			"id": 14,
+			"name": "Елизавета Ф.",
+			"foto": "./img/gallery/gallery14.jpg"
+		},
+		{
+			"id": 15,
+			"name": "Елизавета Ф.",
+			"foto": "./img/gallery/gallery15.jpg"
+		},
+		{
+			"id": 16,
+			"name": "Елизавета Ф.",
+			"foto": "./img/gallery/gallery16.jpg"
+		},
+		{
+			"id": 17,
+			"name": "Елизавета Ф.",
+			"foto": "./img/gallery/gallery17.jpg"
+		}
+	]
+}
