@@ -14,7 +14,7 @@
         <div class="entrance__content">
             <div class="tabs">
                 <div class="tabs__nav">
-                    <a href="../login.html" class="tabs__btn tabs__btn_enter">Вход</a>
+                    <a href="/login" class="tabs__btn tabs__btn_enter">Вход</a>
                     <button class="tabs__btn tabs__btn_reg tabs__btn_active">Регистрация</button>
                 </div>
                 <div class="tabs__content">

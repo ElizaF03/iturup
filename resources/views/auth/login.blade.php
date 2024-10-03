@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Вход</title>
 </head>
-<link rel="stylesheet" href="../../src/public/css/style.css?_v=20241002201244">
+<link rel="stylesheet" href={{ asset('css/style.css') }}>
 
 <body>
 	<div class="container__login">
@@ -15,12 +15,22 @@
 				<div class="tabs">
 					<div class="tabs__nav">
 						<button class="tabs__btn  tabs__btn_enter tabs__btn_active">Вход</button>
-						<a href="auth/register.blade.php" class="tabs__btn tabs__btn_reg">Регистрация</a>
+						<a href="/register" class="tabs__btn tabs__btn_reg">Регистрация</a>
 
 					</div>
 					<div class="tabs__content">
 						<div class="tabs__pane tabs__pane_show tabs__pane_enter">
-							<form action="#" id="enter" class="form__enter enter">
+                            @if ($errors->any())
+                                <div>
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+							<form action="{{ route('login') }}" method="POST" id="enter" class="form__enter enter">
+							@csrf
 								<div class="enter__item">
 									<input type="email" class="enter__input input" placeholder="Email" tabindex="1">
 								</div>
@@ -31,7 +41,7 @@
 									<button type="submit" class="btn" tabindex="3">Войти</button>
 								</div>
 							</form>
-							<div class="entrance__back "><a href="recovery.html" class="recovery-link ">Забыли пароль?</a>
+							<div class="entrance__back "><a href="../recovery.html" class="recovery-link ">Забыли пароль?</a>
 							</div>
 						</div>
 					</div>
