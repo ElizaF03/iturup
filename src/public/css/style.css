@@ -910,7 +910,7 @@ main {
 }
 
 .no-webp .tours{
-  background: url(../img/tours.png) 50%/cover no-repeat; }
+  background-image: url(../img/tours.webp)  }
 
 .tours {
   margin-top: -2px;
@@ -1477,7 +1477,6 @@ main {
   font-family: Montserrat;
   font-size: 16px;
   letter-spacing: 0.07em;
-  text-transform: capitalize;
   color: #0a2a35;
 }
 

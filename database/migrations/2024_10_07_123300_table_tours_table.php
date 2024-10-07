@@ -11,20 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tours', function (Blueprint $table) {
-            $table->id();
-            $table->string('name', length: 255);
-            $table->text('description');
-            $table->timestamps();
+        Schema::table('tours', function (Blueprint $table) {
+            $table->integer('price')->default(0);
         });
     }
-
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('tours');
+        //
     }
 };

@@ -3,12 +3,10 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="../../src/public/css/style.min.css?_v=20241002201244">
 	<title>На Итуруп!</title>
 </head>
-<link rel="stylesheet" href="../../src/public/css/style.css?_v=20241002201244">
+<link rel="stylesheet" href={{ asset('css/style.css') }}>
 
 <body>
 	<header class="header">
@@ -39,7 +37,7 @@
 						</li>
 						<li class="menu__item"> <a data-goto=".faq" href="#" class="menu__link menuLinks">FAQ</a>
 						</li>
-						<li class="menu__item"> <a href="../login.html" class="menu__link menuLinks login">Войти</a>
+						<li class="menu__item"> <a href="/login" class="menu__link menuLinks login">Войти</a>
 						</li>
 					</ul>
 				</nav>
@@ -189,7 +187,7 @@
 							<div class="item-attraction">
 
 								<div class="item-attraction__info">
-									<div class="item-attraction__image"><picture><source srcset="../../src/public/img/attractions/whiteRocks.webp" type="image/webp"><img src="../../src/public/img/attractions/whiteRocks.jpg" alt=""></picture></div>
+									<div class="item-attraction__image"><picture><source srcset="{{asset('img/attractions//whiteRocks.webp')}}" type="image/webp"><img src="../../src/public/img/attractions/whiteRocks.jpg" alt=""></picture></div>
 									<div class="item-attraction__title">
 										<h3 class="title-3">Белые скалы</h3>
 									</div>
@@ -209,7 +207,7 @@
 							<div class="item-attraction">
 
 								<div class="item-attraction__info">
-									<div class="item-attraction__image"><picture><source srcset="../../src/public/img/attractions/kasatka.webp" type="image/webp"><img src="../../src/public/img/attractions/kasatka.jpg" alt=""></picture></div>
+									<div class="item-attraction__image"><picture><source srcset="{{asset('img/attractions/kasatka.webp')}}" type="image/webp"><img src="{{asset('img/attractions/kasatka.jpg')}}" alt=""></picture></div>
 									<div class="item-attraction__title">
 										<h3 class="title-3">Залив Касатка</h3>
 									</div>
@@ -226,7 +224,7 @@
 							<div class="item-attraction">
 
 								<div class="item-attraction__info">
-									<div class="item-attraction__image"><picture><source srcset="../../src/public/img/attractions/cryingRock.webp" type="image/webp"><img src="../../src/public/img/attractions/cryingRock.jpg" alt=""></picture></div>
+									<div class="item-attraction__image"><picture><source srcset="{{asset('img/attractions/cryingRock.webp')}}" type="image/webp"><img src="../../src/public/img/attractions/cryingRock.jpg" alt=""></picture></div>
 									<div class="item-attraction__title">
 										<h3 class="title-3">Стена водопадов</h3>
 									</div>
@@ -246,7 +244,7 @@
 							<div class="item-attraction">
 
 								<div class="item-attraction__info">
-									<div class="item-attraction__image"><picture><source srcset="../../src/public/img/attractions/yankito.webp" type="image/webp"><img src="../../src/public/img/attractions/yankito.jpg" alt=""></picture></div>
+									<div class="item-attraction__image"><picture><source srcset="{{asset('img/attractions/yankito.webp')}}" type="image/webp"><img src="../../src/public/img/attractions/yankito.jpg" alt=""></picture></div>
 									<div class="item-attraction__title">
 										<h3 class="title-3">Лавовое плато Янкито</h3>
 									</div>
@@ -262,7 +260,7 @@
 						<section class="attractions__item item-attraction">
 							<div class="item-attraction">
 								<div class="item-attraction__info">
-									<div class="item-attraction__image"><picture><source srcset="../../src/public/img/attractions/boilingRiver.webp" type="image/webp"><img src="../../src/public/img/attractions/boilingRiver.jpg" alt=""></picture>
+									<div class="item-attraction__image"><picture><source srcset="{{asset('img/attractions/boilingRiver.webp')}}" type="image/webp"><img src="../../src/public/img/attractions/boilingRiver.jpg" alt=""></picture>
 									</div>
 									<div class="item-attraction__title">
 										<h3 class="title-3">Река Кипящая</h3>
@@ -360,7 +358,7 @@
 				</div>
 				<div class="tours__body">
 					<div class="tours__column">
-						<img src="../../src/public/img/cloud.svg" alt="">
+						<img src="{{asset('img/cloud.svg')}}" alt="">
 						<div class="tours__bookig booking">
 							<div class="booking__wrapper swiper-wrapper">
 								<article class="booking__item swiper-slide">
@@ -434,59 +432,18 @@
 					</div>
 					<div class="tours__column_2">
 						<div class="tours__info info-tours">
-							<div class="info-tours__wrapper swiper-wrapper">
-								<article class="info-tours__item swiper-slide ">
+							<ul class="info-tours__wrapper swiper-wrapper">
+                                <?php foreach ($tours as $tour): ?>
+								<li class="info-tours__item swiper-slide ">
 									<div class="info-tours__title">
-										<h3 class="title-3 title_dark">Базовый тур, 4 дня</h3>
+										<h3 class="title-3 title_dark"><?php echo $tour->name; ?></h3>
 									</div>
-									<div class="info-tours__text">Вы посетите самые красивые места нашего острова: побережье
-										Тихого океана и Охотского моря, белые и черные скалы, стену водопадов, прогуляетесь по
-										лавовому плато и увидите фумаролы вулкана Баранского. Во время экскурсий попробуете
-										местные деликатесы, а вечером отдохнете в горячих источниках.</div>
-								</article>
-								<article class="info-tours__item swiper-slide ">
-									<div class="info-tours__title">
-										<h3 class="title-3 title_dark">Базовый тур+ морская прогулка</h3>
-									</div>
-									<div class="info-tours__text">В этом туре вы увидите все красоты из базового тура, а так же
-										сможете совершить прогулку на лодке по Охотскому морю.
-										Во время такой прогулки вы сможете увидеть сивучей, нерп, возможна встреча с касатками.
-									</div>
-								</article>
-								<article class="info-tours__item swiper-slide">
-									<div class="info-tours__title">
-										<h3 class="title-3 title_dark">Базовый тур+ вулкан баранского</h3>
-									</div>
-									<div class="info-tours__text">Любите горы? Тогда это ваш вариант.
-										К базовому туру добавляется подъем на вулкан Баранского (1134м) - время подъема и спуска
-										около 5-6 часов.
-									</div>
-								</article>
-								<article class="info-tours__item swiper-slide">
-									<div class="info-tours__title">
-										<h3 class="title-3 title_dark">Зимний Итуруп, 4 дня</h3>
-									</div>
-									<div class="info-tours__text">
-										Итуруп - это один из красивейших и наиболее живописных островов нашей страны. Зимой он
-										особенно прекрасен, покрытый снегом и льдом, он создает незабываемую атмосферу для
-										любителей зимних видов спорта и туризма.
-										А когда снаружи настоящая островная зима, а внутри горячие и согревающие источники. Что
-										может быть уютнее?
-									</div>
-								</article>
-								<article class="info-tours__item swiper-slide">
-									<div class="info-tours__title">
-										<h3 class="title-3 title_dark">Весь итуруп, 8 дней</h3>
-									</div>
-									<div class="info-tours__text">В этом туре вы увидите ту часть острова, которая редко попадает
-										в туристические справочники и практически нетронута человеком. Совершите морскую прогулку
-										по заливу Львиная пасть, подниметесь на
-										вулкан Атсонупури, побываете на морской рыбалке. Во второй половине тура вернемся в
-										северную часть острова, где на комфортных автомобилях посетите все популярные
-										достопримечательности и отдохнете в горячих источниках.
-									</div>
-								</article>
-							</div>
+									<div class="info-tours__text"><?php echo $tour->description; ?></div>
+								</li>
+
+                                <?php endforeach; ?>
+							</ul>
+
 						</div>
 					</div>
 				</div>
@@ -638,9 +595,9 @@
 
 					<div class="feedback__navigation">
 						<div class="feedback__button feedback__button_prev swiper-button-prev"><img
-                            src="../../src/public/img/icons/arrow.svg" alt=""></div>
+                                src="../../src/public/img/icons/arrow.svg" alt=""></div>
 						<div class="feedback__button feedback__button_next swiper-button-next"><img
-                            src="../../src/public/img/icons/arrow.svg" alt="">
+                                src="../../src/public/img/icons/arrow.svg" alt="">
 						</div>
 					</div>
 					<div class="feedback__add add-feedback"><a class="addFeedback" href="#"><img src="../../src/public/img/icons/plus.svg"
@@ -1540,7 +1497,7 @@
 		</div>
 	</div>
 </footer>
-	<script src="../js/app.min.js?_v=20241002201244"></script>
+	<script type="module" src="{{ asset('js/app.min.js') }}"></script>
 </body>
 
 </html>

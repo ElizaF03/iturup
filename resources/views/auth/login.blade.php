@@ -32,10 +32,10 @@
 							<form action="{{ route('login') }}" method="POST" id="enter" class="form__enter enter">
 							@csrf
 								<div class="enter__item">
-									<input type="email" class="enter__input input" placeholder="Email" tabindex="1">
+									<input type="email" name="email" class="enter__input input" placeholder="Email" tabindex="1">
 								</div>
 								<div class="enter__item">
-									<input type="password" class="enter__input input" placeholder="Пароль" tabindex="2">
+									<input type="password"  name="password" class="enter__input input" placeholder="Пароль" tabindex="2">
 								</div>
 								<div class="enter__button">
 									<button type="submit" class="btn" tabindex="3">Войти</button>
