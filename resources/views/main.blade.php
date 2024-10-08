@@ -15,7 +15,7 @@
 			<div class="header__top">
 				<nav class="menu__body container">
 					<div class="menu__item-dop  logo"> <a href="#" class="menu__link"><img class="menuClosed"
-                                                                                           src="../../src/public/img/logo.svg" alt=""></a>
+                                                                                           src="{{ asset('img/logo.svg') }}" alt=""></a>
 					</div>
 					<ul class="menu__list">
 						<li class="menu__item"> <a data-goto=".attractions" href="#"
@@ -25,7 +25,7 @@
 						</li>
 						<li class="menu__item menu__point_large"> </li>
 						<li class="menu__item menu__item_logo logo"> <a href="#" class="menu__logo"><img class="menuClosed"
-                                                                                                         src="../../src/public/img/logo.svg" alt=""></a>
+                                                                                                         src="{{ asset('img/logo.svg') }}" alt=""></a>
 						</li>
 						<li class="menu__item menu__point_large"> </li>
 						<li class="menu__item"> <a data-goto=".request" href="#" class="menu__link menuLinks">Забронировать
@@ -61,7 +61,7 @@
 					</li>
 					<li class="mobile-menu__item"> <a data-goto=".faq" href="#" class="mobile-menu__link menuLinks">FAQ</a>
 					</li>
-					<li class="mobile-menu__item"> <a href="../login.html" class="mobile-menu__link menuLinks">Войти</a>
+					<li class="mobile-menu__item"> <a href="/login" class="mobile-menu__link menuLinks">Войти</a>
 					</li>
 				</ul>
 			</nav>
@@ -87,7 +87,7 @@
 						</div>
 					</div>
 					<div class="header__column-right">
-						<picture><source srcset="../../src/public/img/map.webp" type="image/webp"><img src="../../src/public/img/map.png" alt="map Iturup"></picture>
+						<picture><source srcset="{{ asset('img/map.webp') }}" type="image/webp"><img src="{{ asset('img/map.png') }}" alt="map Iturup"></picture>
 					</div>
 				</div>
 			</div>
@@ -95,7 +95,7 @@
 		<div class="header__entrance entrance" id="entrance">
 			<div class="entrance__body">
 				<div class="entrance__content">
-					<img class="entrance__close" src="../../src/public/img/icons/plus.svg" alt="">
+					<img class="entrance__close" src="{{ asset('img/icons/plus.svg') }}" alt="">
 					<div class="tabs">
 						<div class="tabs__nav">
 							<button class="tabs__btn  tabs__btn_enter tabs__btn_active">Вход</button>
@@ -284,7 +284,7 @@
 						<section class="attractions__item item-attraction">
 							<div class="item-attraction">
 								<div class="item-attraction__info">
-									<div class="item-attraction__image"><picture><source srcset="../../src/public/img/attractions/sento.webp" type="image/webp"><img src="../../src/public/img/attractions/sento.jpg" alt=""></picture></div>
+									<div class="item-attraction__image"><picture><source srcset="{{ asset('img/attractions/sento.webp') }}" type="image/webp"><img src="{{ asset('img/attractions/sento.jpg') }}" alt=""></picture></div>
 									<div class="item-attraction__title">
 										<h3 class="title-3">Термальные источники</h3>
 									</div>
@@ -305,7 +305,7 @@
 							<div class="item-attraction">
 
 								<div class="item-attraction__info">
-									<div class="item-attraction__image"><picture><source srcset="../../src/public/img/attractions/fox.webp" type="image/webp"><img src="../../src/public/img/attractions/fox.jpg" alt=""></picture></div>
+									<div class="item-attraction__image"><picture><source srcset="{{ asset('img/attractions/fox.webp') }}" type="image/webp"><img src="{{ asset('img/attractions/fox.jpg') }}" alt=""></picture></div>
 									<div class="item-attraction__title">
 										<h3 class="title-3">Животные</h3>
 									</div>
@@ -323,7 +323,7 @@
 							<div class="item-attraction">
 
 								<div class="item-attraction__info">
-									<div class="item-attraction__image"><picture><source srcset="../../src/public/img/attractions/tree.webp" type="image/webp"><img src="../../src/public/img/attractions/tree.jpg" alt=""></picture></div>
+									<div class="item-attraction__image"><picture><source srcset="{{ asset('img/attractions/tree.webp') }}" type="image/webp"><img src="../../src/public/img/attractions/tree.jpg" alt=""></picture></div>
 									<div class="item-attraction__title">
 										<h3 class="title-3">Растительность</h3>
 									</div>
@@ -360,73 +360,24 @@
 					<div class="tours__column">
 						<img src="{{asset('img/cloud.svg')}}" alt="">
 						<div class="tours__bookig booking">
-							<div class="booking__wrapper swiper-wrapper">
-								<article class="booking__item swiper-slide">
+							<ul class="booking__wrapper swiper-wrapper">
+                                <?php foreach ($tours as $tour): ?>
+								<li class="booking__item swiper-slide">
 									<div class="booking__info">
 										<div class="booking__title">
-											<h3 class="title-3 title_dark">Базовый тур </h3>
+											<h3 class="title-3 title_dark"><?php echo $tour->name; ?></h3>
 										</div>
-										<div class="booking__cost">цена: 28 000 рублей</div>
+										<div class="booking__cost">цена: <?php echo $tour->price; ?> рублей</div>
 									</div>
 									<div class="booking__details ">
-										<a href="#" class="booking__details_link basic">Подробнее</a>
+										<a href="#" class="booking__details_link <?php echo $tour->id; ?>">Подробнее</a>
 									</div>
-									<a data-goto=".request" href="#" class="booking__link btn basic menuLinks"
-										id="basic">забронировать</a>
-								</article>
-								<article class="booking__item swiper-slide">
-									<div class="booking__info">
-										<div class="booking__title">
-											<h3 class="title-3 title_dark">морская прогулка</h3>
-										</div>
-										<div class="booking__cost">цена: 34 000 рублей</div>
-									</div>
-									<div class="booking__details ">
-										<a href="#" class="booking__details_link sea">Подробнее</a>
-									</div>
-									<a data-goto=".request" href="#" class="booking__link btn sea menuLinks"
-										id="sea">забронировать</a>
-								</article>
-								<article class="booking__item swiper-slide">
-									<div class="booking__info">
-										<div class="booking__title">
-											<h3 class="title-3 title_dark">вулкан баранского</h3>
-										</div>
-										<div class="booking__cost">цена: 32 000 рублей</div>
-									</div>
-									<div class="booking__details ">
-										<a href="#" class="booking__details_link volcano">Подробнее</a>
-									</div>
-									<a data-goto=".request" href="#" class="booking__link btn volcano menuLinks"
-										id="volcano">забронировать</a>
-								</article>
-								<article class="booking__item swiper-slide">
-									<div class="booking__info">
-										<div class="booking__title">
-											<h3 class="title-3 title_dark">Зимний итуруп</h3>
-										</div>
-										<div class="booking__cost">цена: 25 000 рублей</div>
-									</div>
-									<div class="booking__details ">
-										<a href="#" class="booking__details_link winter">Подробнее</a>
-									</div>
-									<a data-goto=".request" href="#" class="booking__link btn winter menuLinks"
-										id="winter">забронировать</a>
-								</article>
-								<article class="booking__item swiper-slide">
-									<div class="booking__info">
-										<div class="booking__title">
-											<h3 class="title-3 title_dark">Весь итуруп</h3>
-										</div>
-										<div class="booking__cost">цена: 55 000 рублей</div>
-									</div>
-									<div class="booking__details ">
-										<a href="#" class="booking__details_link all">Подробнее</a>
-									</div>
-									<a data-goto=".request" href="#" class="booking__link btn all menuLinks"
-										id="all">забронировать</a>
-								</article>
-							</div>
+									<a data-goto=".request" href="#" class="booking__link btn menuLinks"
+										id="<?php echo $tour->id; ?>">забронировать</a>
+								</li>
+
+                                <?php endforeach; ?>
+							</ul>
 						</div>
 
 					</div>
@@ -440,7 +391,6 @@
 									</div>
 									<div class="info-tours__text"><?php echo $tour->description; ?></div>
 								</li>
-
                                 <?php endforeach; ?>
 							</ul>
 
@@ -471,12 +421,10 @@
 							</div>
 							<div class="request__item request__item_select select__wrapper">
 								<select name="tour" id="tour" class="request__input request__select select">
+                                    <?php foreach ($tours as $tour): ?>
 									<option value="" disabled selected hidden>Выберите тур</option>
-									<option value="1">Базовый тур, 4 дня</option>
-									<option value="2">Базовый тур с морской прогулкой</option>
-									<option value="3">Базовый тур с восхождением на вулкан Баранского</option>
-									<option value="4">Зимний Итуруп, 4 дня</option>
-									<option value="5">Весь Итуруп, 8 дней</option>
+									<option value="<?php echo $tour->id; ?>"><?php echo $tour->name; ?></option>
+                                    <?php endforeach; ?>
 								</select>
 							</div>
 							<div class="request__item request__item_date" id="calendar">
@@ -486,7 +434,7 @@
 						<div class="request__column">
 							<div class="section-filter__title">Количество человек</div>
 							<div class="request__radio">
-								<label for="1"><input class="original__radio" checked class="radio" type="radio" id="1"
+								<label for="1"><input class="original__radio radio" checked type="radio" id="1"
 										name="number" value="1-4"><span class="custom-radio">
 									</span>1-4 человекa</label>
 								<label for="2"><input class="original__radio" type="radio" id="2" name="number"
@@ -595,12 +543,12 @@
 
 					<div class="feedback__navigation">
 						<div class="feedback__button feedback__button_prev swiper-button-prev"><img
-                                src="../../src/public/img/icons/arrow.svg" alt=""></div>
+                                src="{{asset('img/icons/arrow.svg')}}" alt=""></div>
 						<div class="feedback__button feedback__button_next swiper-button-next"><img
-                                src="../../src/public/img/icons/arrow.svg" alt="">
+                                src="{{asset('img/icons/arrow.svg')}}" alt="">
 						</div>
 					</div>
-					<div class="feedback__add add-feedback"><a class="addFeedback" href="#"><img src="../../src/public/img/icons/plus.svg"
+					<div class="feedback__add add-feedback"><a class="addFeedback" href="#"><img src="{{asset('img/icons/plus.svg')}}"
 								alt="">
 							<span>поделиться
 								впечатлениями</span> </a></div>
@@ -610,7 +558,7 @@
 					<div class="add-feedback__body">
 						<form method="get" class="add-feedback__form form" id="feedbackForm">
 							<div class="add-feedback__close">
-								<img class="close" src="../../src/public/img/icons/plus.svg" alt="">
+								<img class="close" src="{{asset('img/icons/plus.svg')}}" alt="">
 							</div>
 							<div class="add-feedback__name">
 								<input type="text" name="name" id="nameForFeedback" class="add-feedback__input input"
@@ -671,7 +619,7 @@
 					<div class="gallery__item grid-item" data-idg="1"><picture><source srcset="../../src/public/img/gallery/gallery1.webp" type="image/webp"><img src="../../src/public/img/gallery/gallery1.jpg" alt=""></picture>
 						<div class="gallery__artist">Фотограф: Елизавета Ф.</div>
 					</div>
-					<div class="gallery__item grid-item" data-idg="2"><picture><source srcset="../../src/public/img/gallery/gallery2.webp" type="image/webp"><img src="../../src/public/img/gallery/gallery2.jpg" alt=""></picture>
+					<div class="gallery__item grid-item" data-idg="2"><picture><source srcset="{{asset('img/gallery/gallery2.webp')}}" type="image/webp"><img src="../../src/public/img/gallery/gallery2.jpg" alt=""></picture>
 						<div class="gallery__artist">Фотограф: Елизавета Ф.</div>
 					</div>
 					<div class="gallery__item grid-item" data-idg="3"><picture><source srcset="../../src/public/img/gallery/gallery3.webp" type="image/webp"><img src="../../src/public/img/gallery/gallery3.jpg" alt=""></picture>
